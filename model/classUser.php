@@ -1,0 +1,1 @@
+ici votre class manager 

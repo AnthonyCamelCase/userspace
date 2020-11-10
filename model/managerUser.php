@@ -1,0 +1,1 @@
+ici le manager de votre class user
