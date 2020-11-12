@@ -1,13 +1,13 @@
 <?php
 session_start();
-if(!$_SESSION["member"])
+if(isset($_SESSION["member"]))
 {
-    session_destroy();
-    header ('location: /session/index.php?erreur=tu n\'est pas connecté tu ne peux pas acceder ici');
+    header ('location: ../vue/member.php');   
 }
 else
 {
-    header ('location: /session/vue/member.php');
+    session_destroy();
+    header ('location: ../index.php?erreur=tu n\'est pas connecté tu ne peux pas acceder ici');
 }
 
 ?>

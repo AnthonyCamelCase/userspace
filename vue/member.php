@@ -1,4 +1,5 @@
 <?php session_start();
+print_r($_SESSION);
 if(!$_SESSION["connect"])
 {
     header('location: ../controller/controllerMember.php');
@@ -12,22 +13,12 @@ if(!$_SESSION["connect"])
 </head>
 <body>
 <nav>
-    <?php
-    if($_SESSION['connect'])
-    {
-        echo "<li><a href='/session/controller/controllerDeConnect.php'>page deco</a></li>";
-    }
-    ?>
-        <?php
-    if($_SESSION['connect'])
-    {
-        echo "<li><a href='/session/controller/controllerMember.php'>page membre</a></li>";
-    }
-    ?>
-    <li>
-        <a href="/session/index.php">acceuil</a>
-    </li>
+<li><a href='../controller/controllerDeConnect.php'>page deco</a></li>
+<li><a href='../controller/controllerMember.php'>page membre</a></li>
+<li><a href="../index.php">accueil</a></li>
 </nav>
+
+
 <h1>page membre <?php echo $_SESSION["member"] ?></h1> <!--indiquez le login du membre-->
 </body>
 </html>

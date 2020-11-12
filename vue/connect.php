@@ -1,7 +1,7 @@
 <?php session_start();
-if($_SESSION["connect"]=== true)
+if(isset($_SESSION["connect"]))
 {
-    header('location: /session/controller/controllerConnect.php');
+    header ('location: ../index.php?erreur=deja connecté');
 }?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,27 +12,15 @@ if($_SESSION["connect"]=== true)
 </head>
 <body>
     <nav>
-<?php
-if($_SESSION['connect'])
-{
-    echo "<li><a href='/session/controller/controllerDeConnect.php'>page deco></a></li>";
-}
-?>
-<li>
-    <a href="/session/index.php">acceuil</a>
-</li>
-<?php
-if($_SESSION['connect'])
-{
-    echo "<li> <a href='/session/controller/controllerConnect.php'>page membre</li>";
-}
-?>
+<li><a href="/session/index.php">accueil</a></li>
+
 </nav>
 <h1>connecte toi...</h1>
-<form action="/session/controller/controllerCheckConnect.php" method="post">
+
+<form action="../controller/controllerCheckConnect.php" method="post">
         <input type="text" name="login">
         <input type="password" name="mdp">
-                    <input type="submit" value="go!!">
+        <input type="submit" value="go!!">
 </form>
 
 </body>

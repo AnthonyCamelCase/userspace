@@ -1,5 +1,6 @@
 <?php 
 session_start();
+print_r($_SESSION);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,30 +12,28 @@ session_start();
 <body>
 <nav>
 <?php
-if(!$_SESSION['connect'])
+
+if(isset($_SESSION['connect']))
     {
-        echo "<li><a href='/session/controller/controllerConnect.php'>connexion</a></li>";
+        echo "<li><a href='controller/controllerDeConnect.php'>page deco</a></li>";
+        echo "<li> <a href='controller/controllerMember.php'>page membre</li>";
     }
-if($_SESSION['connect']===true)
+else
     {
-        echo "<li><a href='/session/controller/controllerDeConnect.php'>page deco></a></li>";
-    }
-if($_SESSION['connect']=== true)
-    {
-        echo "<li> <a href='/session/controller/controllerConnect.php'>page membre</li>";
-    }
+        echo "<li><a href='vue/connect.php'>connexion</a></li>";
+         }
 ?>
 <li>
-    <a href="/session/index.php">acceuil</a>
+    <a href="index.php">accueil</a>
 </li>
 </nav>
 <?php
-if($_GET["erreur"])
+if(isset($_GET["erreur"]))
 {
     $erreur = $_GET['erreur'];
     echo "<H1>$erreur<H1>";
 }
 ?>
-<h1>clique sur sur connexion pour te log IN </h1>
+<h1>clique sur sur connexion pour te login </h1>
 </body>
 </html>

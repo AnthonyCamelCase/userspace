@@ -3,7 +3,7 @@
 if
 (empty($_POST["login"]) AND empty($_POST["mdp"]))
 {
-    header('location: /session/index.php?erreur=une erreur est survenue');
+    header('location: ../index.php?erreur=une erreur est survenue');
 }
 else
 {   
@@ -19,12 +19,12 @@ else
         $_SESSION["connect"] = true;//passer une variable $connect à true (boolean)
         $_SESSION["member"] = $_POST["login"];
         //header page membre 
-        header ('location: /session/controller/controllerMember.php');
+        header ('location: controllerMember.php');
     }
     else
     {
         //pas bon 
-        header('location: /session/index.php?erreur=une erreur est survenue');
+        header('location: ../index.php?erreur=une erreur est survenue');
     }
 }
 
